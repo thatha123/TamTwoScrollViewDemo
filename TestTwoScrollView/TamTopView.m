@@ -10,8 +10,6 @@
 
 @interface TamTopView()<UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property(nonatomic,strong)UICollectionView *collectionView;
-
 @end
 
 @implementation TamTopView
@@ -34,33 +32,28 @@ static NSString *cellId = @"TamTopCollectionCell";
     }
 }
 
--(void)setPointWithScrollView:(UIScrollView *)scrollView
-{
-    self.collectionView.contentOffset = CGPointMake(scrollView.contentOffset.x, 0);
-}
-
--(void)setPoint:(CGPoint)p
-{
-    self.collectionView.contentOffset = p;
-}
-
 -(void)setupUI
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flowLayout.itemSize = CGSizeMake(50, 50);
     flowLayout.minimumLineSpacing = 0;
     flowLayout.minimumInteritemSpacing = 0;
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:flowLayout];
     self.collectionView = collectionView;
     collectionView.backgroundColor = [UIColor clearColor];
+    collectionView.showsVerticalScrollIndicator = NO;
+    collectionView.showsHorizontalScrollIndicator = NO;
+    collectionView.bounces = NO;
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[TamTopCollectionCell class] forCellWithReuseIdentifier:cellId];
     [self addSubview:collectionView];
-    collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[collectionView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(collectionView)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[collectionView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(collectionView)]];
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.collectionView.frame = self.bounds;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -70,14 +63,34 @@ static NSString *cellId = @"TamTopCollectionCell";
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 100;
+    return self.topCellNum ? self.topCellNum(section) : 0;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TamTopCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    cell.label.text = [NSString stringWithFormat:@"测试:%zd",indexPath.row];
+    for (id sub in cell.contentView.subviews) {
+        if ([sub tag] != 5555) {
+            [sub removeFromSuperview];
+        }
+    }
+    UIView *view = self.topCellView(indexPath);
+    if (view) {
+        cell.label.text = @"";
+        [cell.contentView addSubview:view];
+        view.translatesAutoresizingMaskIntoConstraints = NO;
+        [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(view)]];
+        [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(view)]];
+    }else{
+        cell.label.text = self.topCellTitle(indexPath);
+    }
+    cell.contentView.backgroundColor = self.topCellColor(indexPath);
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.topCellSize(indexPath);
 }
 
 @end
@@ -88,6 +101,7 @@ static NSString *cellId = @"TamTopCollectionCell";
 {
     if (!_label) {
         _label = [[UILabel alloc]init];
+        _label.tag = 5555;
         _label.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_label];
         _label.translatesAutoresizingMaskIntoConstraints = NO;

@@ -11,12 +11,14 @@
 @protocol TamLeftTopViewDelegate <NSObject>
 
 @optional
--(void)clickTopOrBottomView:(int)type;
+-(void)clickLeftTopView;
 
 @end
 
 @interface TamLeftTopView : UIView
 
-@property(nonatomic,strong)id<TamLeftTopViewDelegate> delegate;
+@property(nonatomic,weak)id<TamLeftTopViewDelegate> delegate;
+@property(nonatomic,assign)BOOL isCanTapLeftTop;
+@property(nonatomic,strong)UILabel *topLabel;
 
 @end

@@ -8,9 +8,8 @@
 
 #import "TamLeftView.h"
 
+#pragma mark - TamLeftView
 @interface TamLeftView()<UITableViewDelegate,UITableViewDataSource>
-
-@property(nonatomic,strong)UITableView *tableView;
 
 @end
 
@@ -25,16 +24,6 @@
     return self;
 }
 
--(void)setPointWithScrollView:(UIScrollView *)scrollView
-{
-    self.tableView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
-}
-
--(void)setPoint:(CGPoint)p
-{
-    self.tableView.contentOffset = p;
-}
-
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if ([self.delegate respondsToSelector:@selector(changeLeftScrollView:)]) {
@@ -46,12 +35,19 @@
 {
     UITableView *tableView = [[UITableView alloc]init];
     self.tableView = tableView;
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.showsHorizontalScrollIndicator = NO;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.bounces = NO;
     tableView.delegate = self;
     tableView.dataSource = self;
     [self addSubview:tableView];
-    tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[tableView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(tableView)]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[tableView]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(tableView)]];
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.tableView.frame = self.bounds;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -61,23 +57,37 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return self.leftCellNum ? self.leftCellNum(section) : 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellId = @"cell";
+    static NSString *cellId = @"leftCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"测试%zd",indexPath.row];
+    for (id sub in cell.contentView.subviews) {
+        [sub removeFromSuperview];
+    }
+    UIView *view = self.leftCellView(indexPath);
+    if (view) {
+        cell.textLabel.text = @"";
+        [cell.contentView addSubview:view];
+        view.translatesAutoresizingMaskIntoConstraints = NO;
+        [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(view)]];
+        [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|" options:0 metrics:0 views:NSDictionaryOfVariableBindings(view)]];
+    }else{
+        cell.textLabel.text = self.leftCellTitle(indexPath);
+    }
+    cell.contentView.backgroundColor = self.leftCellColor(indexPath);
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return self.leftCellSize(indexPath).height;
 }
 
 @end
