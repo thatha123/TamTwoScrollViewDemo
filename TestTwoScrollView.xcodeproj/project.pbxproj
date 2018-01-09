@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183A37DC200466F900728411 /* TamCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A37D3200466F900728411 /* TamCenterView.m */; };
+		183A37DD200466F900728411 /* TamLeftTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A37D5200466F900728411 /* TamLeftTopView.m */; };
+		183A37DE200466F900728411 /* TamLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A37D7200466F900728411 /* TamLeftView.m */; };
+		183A37DF200466F900728411 /* TamMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A37D9200466F900728411 /* TamMainView.m */; };
+		183A37E0200466F900728411 /* TamTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A37DB200466F900728411 /* TamTopView.m */; };
 		1862C82B1FB6BD3800194575 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C82A1FB6BD3800194575 /* AppDelegate.m */; };
 		1862C82E1FB6BD3800194575 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C82D1FB6BD3800194575 /* ViewController.m */; };
 		1862C8311FB6BD3800194575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1862C82F1FB6BD3800194575 /* Main.storyboard */; };
@@ -15,11 +20,6 @@
 		1862C8391FB6BD3800194575 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C8381FB6BD3800194575 /* main.m */; };
 		1862C8431FB6BD3800194575 /* TestTwoScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C8421FB6BD3800194575 /* TestTwoScrollViewTests.m */; };
 		1862C84E1FB6BD3800194575 /* TestTwoScrollViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C84D1FB6BD3800194575 /* TestTwoScrollViewUITests.m */; };
-		1862C85D1FB6E0C900194575 /* TamMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C85C1FB6E0C900194575 /* TamMainView.m */; };
-		1862C8601FB6E0EF00194575 /* TamLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C85F1FB6E0EF00194575 /* TamLeftView.m */; };
-		1862C8631FB6E0F800194575 /* TamTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C8621FB6E0F800194575 /* TamTopView.m */; };
-		1862C8661FB6E11000194575 /* TamCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C8651FB6E11000194575 /* TamCenterView.m */; };
-		1862C8691FB6E12A00194575 /* TamLeftTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862C8681FB6E12A00194575 /* TamLeftTopView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183A37D2200466F900728411 /* TamCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TamCenterView.h; sourceTree = "<group>"; };
+		183A37D3200466F900728411 /* TamCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TamCenterView.m; sourceTree = "<group>"; };
+		183A37D4200466F900728411 /* TamLeftTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TamLeftTopView.h; sourceTree = "<group>"; };
+		183A37D5200466F900728411 /* TamLeftTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TamLeftTopView.m; sourceTree = "<group>"; };
+		183A37D6200466F900728411 /* TamLeftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TamLeftView.h; sourceTree = "<group>"; };
+		183A37D7200466F900728411 /* TamLeftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TamLeftView.m; sourceTree = "<group>"; };
+		183A37D8200466F900728411 /* TamMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TamMainView.h; sourceTree = "<group>"; };
+		183A37D9200466F900728411 /* TamMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TamMainView.m; sourceTree = "<group>"; };
+		183A37DA200466F900728411 /* TamTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TamTopView.h; sourceTree = "<group>"; };
+		183A37DB200466F900728411 /* TamTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TamTopView.m; sourceTree = "<group>"; };
 		1862C8261FB6BD3800194575 /* TestTwoScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTwoScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1862C8291FB6BD3800194575 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1862C82A1FB6BD3800194575 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,16 +66,6 @@
 		1862C8491FB6BD3800194575 /* TestTwoScrollViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTwoScrollViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1862C84D1FB6BD3800194575 /* TestTwoScrollViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTwoScrollViewUITests.m; sourceTree = "<group>"; };
 		1862C84F1FB6BD3800194575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1862C85B1FB6E0C900194575 /* TamMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamMainView.h; sourceTree = "<group>"; };
-		1862C85C1FB6E0C900194575 /* TamMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TamMainView.m; sourceTree = "<group>"; };
-		1862C85E1FB6E0EF00194575 /* TamLeftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamLeftView.h; sourceTree = "<group>"; };
-		1862C85F1FB6E0EF00194575 /* TamLeftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TamLeftView.m; sourceTree = "<group>"; };
-		1862C8611FB6E0F800194575 /* TamTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamTopView.h; sourceTree = "<group>"; };
-		1862C8621FB6E0F800194575 /* TamTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TamTopView.m; sourceTree = "<group>"; };
-		1862C8641FB6E11000194575 /* TamCenterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamCenterView.h; sourceTree = "<group>"; };
-		1862C8651FB6E11000194575 /* TamCenterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TamCenterView.m; sourceTree = "<group>"; };
-		1862C8671FB6E12A00194575 /* TamLeftTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamLeftTopView.h; sourceTree = "<group>"; };
-		1862C8681FB6E12A00194575 /* TamLeftTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TamLeftTopView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183A37D1200466F900728411 /* TamMainView */ = {
+			isa = PBXGroup;
+			children = (
+				183A37D8200466F900728411 /* TamMainView.h */,
+				183A37D9200466F900728411 /* TamMainView.m */,
+				183A37D2200466F900728411 /* TamCenterView.h */,
+				183A37D3200466F900728411 /* TamCenterView.m */,
+				183A37D6200466F900728411 /* TamLeftView.h */,
+				183A37D7200466F900728411 /* TamLeftView.m */,
+				183A37DA200466F900728411 /* TamTopView.h */,
+				183A37DB200466F900728411 /* TamTopView.m */,
+				183A37D4200466F900728411 /* TamLeftTopView.h */,
+				183A37D5200466F900728411 /* TamLeftTopView.m */,
+			);
+			path = TamMainView;
+			sourceTree = "<group>";
+		};
 		1862C81D1FB6BD3800194575 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +133,7 @@
 		1862C8281FB6BD3800194575 /* TestTwoScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				183A37D1200466F900728411 /* TamMainView */,
 				1862C8291FB6BD3800194575 /* AppDelegate.h */,
 				1862C82A1FB6BD3800194575 /* AppDelegate.m */,
 				1862C82C1FB6BD3800194575 /* ViewController.h */,
@@ -125,16 +143,6 @@
 				1862C8341FB6BD3800194575 /* LaunchScreen.storyboard */,
 				1862C8371FB6BD3800194575 /* Info.plist */,
 				1862C8381FB6BD3800194575 /* main.m */,
-				1862C85B1FB6E0C900194575 /* TamMainView.h */,
-				1862C85C1FB6E0C900194575 /* TamMainView.m */,
-				1862C85E1FB6E0EF00194575 /* TamLeftView.h */,
-				1862C85F1FB6E0EF00194575 /* TamLeftView.m */,
-				1862C8611FB6E0F800194575 /* TamTopView.h */,
-				1862C8621FB6E0F800194575 /* TamTopView.m */,
-				1862C8641FB6E11000194575 /* TamCenterView.h */,
-				1862C8651FB6E11000194575 /* TamCenterView.m */,
-				1862C8671FB6E12A00194575 /* TamLeftTopView.h */,
-				1862C8681FB6E12A00194575 /* TamLeftTopView.m */,
 			);
 			path = TestTwoScrollView;
 			sourceTree = "<group>";
@@ -290,14 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183A37DD200466F900728411 /* TamLeftTopView.m in Sources */,
+				183A37DC200466F900728411 /* TamCenterView.m in Sources */,
+				183A37DE200466F900728411 /* TamLeftView.m in Sources */,
 				1862C82E1FB6BD3800194575 /* ViewController.m in Sources */,
-				1862C8661FB6E11000194575 /* TamCenterView.m in Sources */,
 				1862C8391FB6BD3800194575 /* main.m in Sources */,
-				1862C85D1FB6E0C900194575 /* TamMainView.m in Sources */,
-				1862C8631FB6E0F800194575 /* TamTopView.m in Sources */,
-				1862C8601FB6E0EF00194575 /* TamLeftView.m in Sources */,
-				1862C8691FB6E12A00194575 /* TamLeftTopView.m in Sources */,
+				183A37DF200466F900728411 /* TamMainView.m in Sources */,
 				1862C82B1FB6BD3800194575 /* AppDelegate.m in Sources */,
+				183A37E0200466F900728411 /* TamTopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
