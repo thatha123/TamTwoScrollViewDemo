@@ -12,7 +12,6 @@
 @protocol TamMainViewDataSource<NSObject>
 
 @required
-<<<<<<< HEAD
 /**
  @param mainView TamMainView
  @param section 暂时没用到
@@ -43,17 +42,6 @@
  @param indexPath indexPath.row
  @return 返回表格顶部标题行每列需要显示的内容
  */
-=======
-//返回表格有多少行(左侧有几列)
--(NSInteger)mainView:(TamMainView *)mainView numberOfRowsInSection:(NSInteger)section;
-//返回表格有多少列(顶部有几行)
--(NSInteger)mainView:(TamMainView *)mainView numberOfColsInSection:(NSInteger)section;
-//返回表格某行某列位置上需要显示的内容 indexRow行 col每行的列
--(NSString *)mainView:(TamMainView *)mainView cellForCenterTitleAtRow:(NSInteger)row col:(NSInteger)col;
-//返回表格左侧标题列每行需要显示的内容
--(NSString *)mainView:(TamMainView *)mainView cellForLeftTitleAtIndexPath:(NSIndexPath*)indexPath;
-//返回表格上边标题行每列需要显示的内容
->>>>>>> origin/master
 -(NSString *)mainView:(TamMainView *)mainView cellForTopTitleAtIndexPath:(NSIndexPath*)indexPath;
 
 @optional
@@ -62,7 +50,6 @@
 
 @protocol TamMainViewDelegate<NSObject>
 @optional
-<<<<<<< HEAD
 /**
  @param mainView TamMainView
  @param col 列
@@ -143,27 +130,6 @@
  @param indexPath indexPath.row
  @return 返回表格头部的视图
  */
-=======
-//返回表格每行每列的宽高
--(CGSize)mainView:(TamMainView *)mainView sizeForCenterAtRow:(NSInteger)row col:(NSInteger)col;
-//返回表格左侧宽高【设置isAutoSize = YES 就根据sizeForCenterAtRow返回,为NO时才有效】
--(CGSize)mainView:(TamMainView *)mainView sizeForLeftCellIndexPath:(NSIndexPath *)indexPath;
-//返回表格顶部宽高【设置isAutoSize = YES 就根据sizeForCenterAtRow返回,为NO时才有效】
--(CGSize)mainView:(TamMainView *)mainView sizeForTopCellIndexPath:(NSIndexPath *)indexPath;
-
-//返回表格每行每列的颜色
--(UIColor *)mainView:(TamMainView *)mainView colorForCenterAtRow:(NSInteger)row col:(NSInteger)col;
-//返回表格左侧颜色【设置isAutoSize = YES 就根据colorForCenterAtRow返回,为NO时才有效】
--(UIColor *)mainView:(TamMainView *)mainView colorForLeftCellIndexPath:(NSIndexPath *)indexPath;
-//返回表格头部颜色
--(UIColor *)mainView:(TamMainView *)mainView colorForTopCellIndexPath:(NSIndexPath *)indexPath;
-
-//返回表格每行每列的视图
--(UIView *)mainView:(TamMainView *)mainView viewForCenterAtRow:(NSInteger)row col:(NSInteger)col;
-//返回表格左侧的视图
--(UIView *)mainView:(TamMainView *)mainView viewForLeftCellIndexPath:(NSIndexPath *)indexPath;
-//返回表格头部的视图
->>>>>>> origin/master
 -(UIView *)mainView:(TamMainView *)mainView viewForTopCellIndexPath:(NSIndexPath *)indexPath;
 
 @end

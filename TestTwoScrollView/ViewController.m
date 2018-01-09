@@ -56,7 +56,6 @@
 }
 
 #pragma mark - TamMainViewDelegate
-<<<<<<< HEAD
 -(CGFloat)mainView:(TamMainView *)mainView heightForCenterAtRow:(NSInteger)row
 {
     if (row == 2) {//第2行返回高度
@@ -71,14 +70,6 @@
         return 150;
     }
     return 100;
-=======
--(CGSize)mainView:(TamMainView *)mainView sizeForCenterAtRow:(NSInteger)row col:(NSInteger)col
-{
-//    if (col == 0) {
-//        return CGSizeMake(120, 60);
-//    }
-    return CGSizeMake(100, 40);
->>>>>>> origin/master
 }
 
 -(UIColor *)mainView:(TamMainView *)mainView colorForCenterAtRow:(NSInteger)row col:(NSInteger)col
