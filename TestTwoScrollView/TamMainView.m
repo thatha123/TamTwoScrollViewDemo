@@ -75,12 +75,26 @@ static const CGFloat TamDefH = 40;//默认高
 {
     CGFloat width = TamDefW;
     CGFloat height = TamDefH;
+<<<<<<< HEAD
     if ([self.delegate respondsToSelector:@selector(widthForLeftCellWithMainView:)]) {
         width = [self.delegate widthForLeftCellWithMainView:self];
     }
     if ([self.delegate respondsToSelector:@selector(heightForTopCellWithMainView:)]) {
         height = [self.delegate heightForTopCellWithMainView:self];
     }
+=======
+    if (self.isAutoSize) {
+
+    }else{
+        if ([self.delegate respondsToSelector:@selector(mainView:sizeForTopCellIndexPath:)]) {
+            height = [self.delegate mainView:self sizeForTopCellIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].height;
+        }
+        if ([self.delegate respondsToSelector:@selector(mainView:sizeForLeftCellIndexPath:)]) {
+            width = [self.delegate mainView:self sizeForLeftCellIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].width;
+        }
+    }
+    
+>>>>>>> origin/master
     self.leftTopView.frame = CGRectMake(0, 0, width, height);
     self.leftView.frame = CGRectMake(0, height, width, self.frame.size.height-height);
     self.topView.frame = CGRectMake(width, 0, self.frame.size.width-width, height);
@@ -132,6 +146,7 @@ static const CGFloat TamDefH = 40;//默认高
     };
     //cell的大小
     leftView.leftCellSize = ^CGSize(NSIndexPath *indexPath) {
+<<<<<<< HEAD
         CGFloat width = TamDefW;
         CGFloat height = TamDefH;
         if ([self.delegate respondsToSelector:@selector(widthForLeftCellWithMainView:)]) {
@@ -151,6 +166,17 @@ static const CGFloat TamDefH = 40;//默认高
             height = [self.delegate mainView:self heightForLeftCellIndexPath:indexPath];
         }
         return CGSizeMake(width, height);
+=======
+        if (self.isAutoSize) {
+            if ([self.delegate respondsToSelector:@selector(mainView:sizeForCenterAtRow:col:)]) {
+                return CGSizeMake(TamDefW, [self.delegate mainView:self sizeForCenterAtRow:indexPath.row col:0].height);
+            }
+        }
+        if ([self.delegate respondsToSelector:@selector(mainView:sizeForLeftCellIndexPath:)]) {
+            return [self.delegate mainView:self sizeForLeftCellIndexPath:indexPath];
+        }
+        return CGSizeMake(TamDefW, TamDefH);
+>>>>>>> origin/master
     };
     //cell的颜色
     leftView.leftCellColor = ^UIColor *(NSIndexPath *indexPath) {
@@ -182,6 +208,7 @@ static const CGFloat TamDefH = 40;//默认高
     };
     //cell大小
     topView.topCellSize = ^CGSize(NSIndexPath *indexPath) {
+<<<<<<< HEAD
         CGFloat width = TamDefW;
         CGFloat height = TamDefH;
         if ([self.delegate respondsToSelector:@selector(widthForLeftCellWithMainView:)]) {
@@ -200,6 +227,17 @@ static const CGFloat TamDefH = 40;//默认高
             width = [self.delegate mainView:self widthForTopCellIndexPath:indexPath];
         }
         return CGSizeMake(width, height);
+=======
+        if (self.isAutoSize) {
+            if ([self.delegate respondsToSelector:@selector(mainView:sizeForCenterAtRow:col:)]) {
+                return CGSizeMake([self.delegate mainView:self sizeForCenterAtRow:0 col:indexPath.row].width,TamDefH);
+            }
+        }
+        if ([self.delegate respondsToSelector:@selector(mainView:sizeForTopCellIndexPath:)]) {
+            return [self.delegate mainView:self sizeForTopCellIndexPath:indexPath];
+        }
+        return CGSizeMake(TamDefW, TamDefH);
+>>>>>>> origin/master
     };
     //cell的颜色
     topView.topCellColor = ^UIColor *(NSIndexPath *indexPath) {
@@ -235,6 +273,7 @@ static const CGFloat TamDefH = 40;//默认高
     };
     //cell大小
     centerView.centerCellSize = ^CGSize(NSInteger row, NSInteger col) {
+<<<<<<< HEAD
         CGFloat width = TamDefW;
         CGFloat height = TamDefH;
         if ([self.delegate respondsToSelector:@selector(widthForLeftCellWithMainView:)]) {
@@ -250,6 +289,12 @@ static const CGFloat TamDefH = 40;//默认高
             height = [self.delegate mainView:self heightForCenterAtRow:row];
         }
         return CGSizeMake(width, height);
+=======
+        if ([self.delegate respondsToSelector:@selector(mainView:sizeForCenterAtRow:col:)]) {
+            return [self.delegate mainView:self sizeForCenterAtRow:row col:col];
+        }
+        return CGSizeMake(TamDefW, TamDefH);
+>>>>>>> origin/master
     };
     //cell颜色
     centerView.centerCellColor = ^UIColor *(NSInteger row, NSInteger col) {
